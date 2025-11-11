@@ -8,13 +8,7 @@ export const pages = [
       "Bopaki Mining Services (Pty) Ltd is a 100% black woman-owned enterprise providing services and solutions to the mining and engineering sectors. Founded by Ms. Keikanetswe Teme, the company continues to redefine excellence in traditionally male-dominated industries.",
     href: "/",
   },
-  {
-    id: "about",
-    title: "About Us - Bopaki Mining Services",
-    description:
-      "Bopaki Mining Services (Pty) Ltd is a diversified business-driven company that employs efficiency, reliability, integrity, and professionalism. Our vision is to maintain service excellence, and our mission is to provide first-class services while creating a sustainable world-class company.",
-    href: "/about",
-  },
+
   {
     id: "services",
     title: "Services - Bopaki Mining Services",
