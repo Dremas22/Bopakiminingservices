@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🏗️ Bopaki Mining Services (Pty) Ltd
 
-## Getting Started
+**Bopaki Mining Services (Pty) Ltd** is a 100% black woman-owned enterprise providing services and solutions to the **mining and engineering sectors**.  
+Founded by **Ms. Keikanetswe Teme**, the company continues to redefine excellence in industries traditionally dominated by men, driven by her extensive knowledge, experience, and passion for business innovation.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 💡 Who We Are
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Bopaki Mining Services (Pty) Ltd is a **diversified, business-driven company** that upholds efficiency, reliability, integrity, and professionalism.  
+We provide a wide range of products and services designed to meet the dynamic needs of our clients in the mining and engineering sectors.  
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Our approach extends beyond service delivery — we ensure ongoing **after-sales support and solutions** that promote cost-effective and efficient operations for all our clients.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🎯 Vision
 
-To learn more about Next.js, take a look at the following resources:
+To **promote and maintain a reputation of service excellence and dedication**, resulting in long-term partnerships with our clients and suppliers.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Mission
 
-## Deploy on Vercel
+- To serve our clients with **prompt response**, understanding that downtime destroys income.  
+- To be a **locally and internationally recognized enterprise** that provides first-class services to its clientele.  
+- To create a **sustainable, world-class company** that benefits all stakeholders.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👩‍💼 Leadership
+
+**Director:** Ms. Keikanetswe Teme  
+Ms. Teme holds a **Master’s Degree in Business Administration**, giving her a competitive edge in business leadership and strategic management.  
+Her determination and expertise have positioned Bopaki Mining Services as a trusted and respected player in the mining and engineering industries.
+
+---
+
+## ⚙️ Core Services
+
+### Primary Services
+- Buy & Sell (Mining and Industrial Supplies)  
+- Catering Services  
+- PPE and Corporate Clothing  
+- Signage and Branding  
+- Fire Protection Equipment  
+- Fuel & Lubricants  
+- Industrial Gearboxes  
+
+### Secondary Services
+- Logistics  
+- Plant Hire  
+- Office Space Hire  
+
+---
+
+## 📞 Contact Information
+
+**Address:**  
+House No. 0462, Mmadiphiri Section, Phokeng 0335  
+
+**Email:**  
+- info@bopakimining.co.za  
+- keikanetswe@gmail.com  
+
+**Phone:**  
+📱 +27 83 212 1460  
+
+---
+
+## 💬 Motto
+
+> “Efficiency, Reliability, Integrity, and Professionalism — powering South Africa’s mining future.”
+
+---
+
+© 2025 Bopaki Mining Services (Pty) Ltd. All Rights Reserved.
