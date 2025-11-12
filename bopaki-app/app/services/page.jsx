@@ -118,9 +118,11 @@ const ServiceCard = ({ service, index }) => (
       </div>
     </div>
     <div className="p-6 flex-1 flex flex-col overflow-hidden">
-      <h3 className="text-xl font-bold text-gray-900 mb-3">{service.name}</h3>
+      <h3 className="text-xl font-bold text-foreground mb-3">{service.name}</h3>
       <div className="flex-1 overflow-y-auto">
-        <p className="text-gray-600 leading-relaxed">{service.description}</p>
+        <p className="text-muted-foreground leading-relaxed">
+          {service.description}
+        </p>
       </div>
     </div>
   </motion.div>
