@@ -56,7 +56,7 @@ export default function Header() {
                   className="object-contain"
                 />
               </div>
-              <span className="font-bold text-lg text-orange-600 hidden sm:block">
+              <span className="font-bold text-lg text-orange-600 hidden lg:block">
                 Bopaki Mining Services
               </span>
             </Link>
