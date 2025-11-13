@@ -16,17 +16,11 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { ModeToggle } from "./mode-toggle";
+import { navLinks } from "@/constants";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const pathname = usePathname();
-
-  const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
-    { name: "Contact", path: "/contact" },
-  ];
 
   const socialLinks = [
     { icon: FaFacebook, href: "#", color: "hover:text-blue-600" },

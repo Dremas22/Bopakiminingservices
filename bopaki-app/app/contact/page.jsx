@@ -1,42 +1,70 @@
 "use client";
+import { contactInfo } from "@/constants";
 import { motion } from "framer-motion";
-import { FaMapMarkerAlt, FaEnvelope, FaPhone, FaClock } from "react-icons/fa";
+import { Loader2 } from "lucide-react";
+import { useState } from "react";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 const ContactPage = () => {
-  const contactInfo = [
-    {
-      icon: FaMapMarkerAlt,
-      title: "Address",
-      details: [
-        "House no 0462 Mmadiphiri Section",
-        "Phokeng 0335",
-        "South Africa",
-      ],
-      color: "text-orange-500",
-    },
-    {
-      icon: FaEnvelope,
-      title: "Email",
-      details: ["info@bopakimining.co.za", "keikanetswe@gmail.co.za"],
-      color: "text-blue-500",
-    },
-    {
-      icon: FaPhone,
-      title: "Phone",
-      details: ["+27 83 212 1460"],
-      color: "text-green-500",
-    },
-    {
-      icon: FaClock,
-      title: "Business Hours",
-      details: [
-        "Monday - Friday: 8:00 AM - 5:00 PM",
-        "Saturday: 9:00 AM - 1:00 PM",
-        "Sunday: Closed",
-      ],
-      color: "text-purple-500",
-    },
-  ];
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitting(true);
+
+    try {
+      // Validation
+      const newErrors = {
+        name: formData.name ? "" : "Full name is required.",
+        email: formData.email
+          ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+            ? ""
+            : "Enter a valid email address."
+          : "Email is required.",
+        subject: formData.subject ? "" : "Subject is required.",
+        message: formData.message ? "" : "Message is required.",
+      };
+
+      setErrors(newErrors);
+
+      const hasErrors = Object.values(newErrors).some((msg) => msg !== "");
+      if (hasErrors) return;
+
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      // All inputs valid — proceed
+      console.log("Form submitted successfully:", formData);
+      alert("Form submitted successfully!");
+
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <section className="pt-16">
@@ -136,74 +164,93 @@ const ContactPage = () => {
                 Send Us A Message
               </h2>
 
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid md:grid-cols-2 gap-6">
+                  {/* Full Name */}
                   <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-foreground/20 mb-2"
-                    >
+                    <label className="block text-sm font-medium text-foreground/20 mb-2">
                       Full Name *
                     </label>
                     <input
                       type="text"
-                      id="name"
                       name="name"
-                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3 border ${
+                        errors.name ? "border-red-500" : "border-border"
+                      } rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors`}
                       placeholder="Your full name"
-                      required
                     />
+                    {errors.name && (
+                      <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                    )}
                   </div>
+
+                  {/* Email */}
                   <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-foreground/20 mb-2"
-                    >
+                    <label className="block text-sm font-medium text-foreground/20 mb-2">
                       Email Address *
                     </label>
                     <input
                       type="email"
-                      id="email"
                       name="email"
-                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3 border ${
+                        errors.email ? "border-red-500" : "border-border"
+                      } rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors`}
                       placeholder="your@email.com"
-                      required
                     />
+                    {errors.email && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.email}
+                      </p>
+                    )}
                   </div>
                 </div>
 
+                {/* Subject */}
                 <div>
-                  <label
-                    htmlFor="subject"
-                    className="block text-sm font-medium text-foreground/20 mb-2"
-                  >
+                  <label className="block text-sm font-medium text-foreground/20 mb-2">
                     Subject *
                   </label>
                   <input
                     type="text"
-                    id="subject"
                     name="subject"
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 border ${
+                      errors.subject ? "border-red-500" : "border-border"
+                    } rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors`}
                     placeholder="What is this regarding?"
-                    required
                   />
+                  {errors.subject && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.subject}
+                    </p>
+                  )}
                 </div>
 
+                {/* Message */}
                 <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-foreground/20 mb-2"
-                  >
+                  <label className="block text-sm font-medium text-foreground/20 mb-2">
                     Message *
                   </label>
                   <textarea
-                    id="message"
                     name="message"
                     rows={6}
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors resize-none"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 border ${
+                      errors.message ? "border-red-500" : "border-border"
+                    } rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors resize-none`}
                     placeholder="Please provide details about your inquiry..."
-                    required
                   ></textarea>
+                  {errors.message && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.message}
+                    </p>
+                  )}
                 </div>
 
                 <motion.button
@@ -212,7 +259,14 @@ const ContactPage = () => {
                   type="submit"
                   className="w-full bg-linear-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg"
                 >
-                  Send Message
+                  {submitting ? (
+                    <div className="flex items-center justify-center gap-4">
+                      <Loader2 className="w-6 h-6 rounded-full animate-spin text-accent-foreground text-center" />
+                      <span>Submitting...</span>
+                    </div>
+                  ) : (
+                    "Send Message"
+                  )}
                 </motion.button>
               </form>
             </motion.div>
