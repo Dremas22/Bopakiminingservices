@@ -3,20 +3,21 @@ import { contactInfo } from "@/constants";
 import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
+    countryCode: "+27",
+    phone: "",
     message: "",
   });
 
   const [errors, setErrors] = useState({
     name: "",
     email: "",
-    subject: "",
+    phone: "",
     message: "",
   });
   const [submitting, setSubmitting] = useState(false);
@@ -25,7 +26,6 @@ const ContactPage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
@@ -39,7 +39,12 @@ const ContactPage = () => {
             ? ""
             : "Enter a valid email address."
           : "Email is required.",
-        subject: formData.subject ? "" : "Subject is required.",
+        phone: (() => {
+          if (!formData.phone) return "Phone is required.";
+          if (!/^[1-9][0-9]{8}$/.test(formData.phone))
+            return "Phone must be 9 digits and cannot start with 0.";
+          return "";
+        })(),
         message: formData.message ? "" : "Message is required.",
       };
 
@@ -48,19 +53,54 @@ const ContactPage = () => {
       const hasErrors = Object.values(newErrors).some((msg) => msg !== "");
       if (hasErrors) return;
 
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Construct full phone number
+      const { countryCode, phone, ...rest } = formData;
+      const fullPhoneNumber = `${countryCode}${phone}`;
 
-      // All inputs valid — proceed
-      console.log("Form submitted successfully:", formData);
-      alert("Form submitted successfully!");
+      // Data to log
+      const data = {
+        ...rest,
+        phone: fullPhoneNumber,
+      };
 
+      // Professional WhatsApp message
+      const fullMessage = `Hello,
+
+My name is ${formData.name}.
+Phone: ${fullPhoneNumber}
+Email: ${formData.email}
+
+Message:
+${formData.message}
+
+Looking forward to your response.
+Thank you.`;
+
+      const encodedMessage = encodeURIComponent(fullMessage);
+
+      // WhatsApp number (recipient)
+      const whatsAppNumber = "+27832121460";
+
+      // Open WhatsApp
+      window.open(
+        `https://wa.me/${whatsAppNumber}?text=${encodedMessage}`,
+        "_blank"
+      );
+
+      // // Logging
+      // console.log("Form submitted successfully:", data);
+      // console.log("Encoded message:", encodedMessage);
+
+      // Reset form
       setFormData({
         name: "",
         email: "",
-        subject: "",
+        countryCode: "+27",
+        phone: "",
         message: "",
       });
     } catch (error) {
+      console.error(error);
     } finally {
       setSubmitting(false);
     }
@@ -68,8 +108,8 @@ const ContactPage = () => {
 
   return (
     <section className="pt-16">
-      {/* Banner Section */}
-      <div className="relative h-96 flex items-center justify-center overflow-hidden">
+      {/** BANNER */}
+      <div className="relative h-96 w-screen flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{
@@ -80,12 +120,12 @@ const ContactPage = () => {
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
 
-        <div className="relative z-10 text-center text-foreground px-4 max-w-4xl mx-auto">
+        <div className="relative z-10 text-center text-foreground px-4 w-full min-w-0">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-5xl font-bold mb-4"
+            className="text-4xl md:text-5xl font-bold mb-4 break-words"
           >
             Contact Us
           </motion.h1>
@@ -94,7 +134,7 @@ const ContactPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-lg md:text-xl text-foreground/30"
+            className="text-lg md:text-xl text-foreground/30 break-words"
           >
             Get in touch with our team for all your mining and industrial needs
           </motion.p>
@@ -192,7 +232,7 @@ const ContactPage = () => {
                       Email Address *
                     </label>
                     <input
-                      type="email"
+                      type="text"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
@@ -208,29 +248,45 @@ const ContactPage = () => {
                     )}
                   </div>
                 </div>
-
-                {/* Subject */}
+                {/* Phone */}
                 <div>
                   <label className="block text-sm font-medium text-foreground/20 mb-2">
-                    Subject *
+                    Phone Number *
                   </label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-3 border ${
-                      errors.subject ? "border-red-500" : "border-border"
-                    } rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors`}
-                    placeholder="What is this regarding?"
-                  />
-                  {errors.subject && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.subject}
-                    </p>
+                  <div className="flex space-x-2">
+                    {/* Country Code Dropdown */}
+                    <select
+                      name="countryCode"
+                      value={formData.countryCode}
+                      onChange={handleChange}
+                      className="px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors"
+                    >
+                      <option value="+27">+27</option>
+                      {/* Add more codes here if needed */}
+                    </select>
+
+                    {/* Phone Number Input */}
+                    <input
+                      type="text"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={(e) => {
+                        // Allow only digits, max 9, first digit != 0
+                        const value = e.target.value;
+                        if (/^[1-9][0-9]{0,8}$/.test(value) || value === "") {
+                          handleChange(e);
+                        }
+                      }}
+                      className={`flex-1 px-4 py-3 border ${
+                        errors.phone ? "border-red-500" : "border-border"
+                      } rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 transition-colors`}
+                      placeholder="Phone number (9 digits)"
+                    />
+                  </div>
+                  {errors.phone && (
+                    <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
                   )}
                 </div>
-
                 {/* Message */}
                 <div>
                   <label className="block text-sm font-medium text-foreground/20 mb-2">
@@ -252,20 +308,22 @@ const ContactPage = () => {
                     </p>
                   )}
                 </div>
-
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   type="submit"
-                  className="w-full bg-linear-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg"
+                  className="flex items-center justify-center gap-4 w-full bg-linear-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg"
                 >
                   {submitting ? (
                     <div className="flex items-center justify-center gap-4">
                       <Loader2 className="w-6 h-6 rounded-full animate-spin text-accent-foreground text-center" />
-                      <span>Submitting...</span>
+                      <span>Sending...</span>
                     </div>
                   ) : (
-                    "Send Message"
+                    <>
+                      <FaWhatsapp className="text-green-500 w-6 h-6 rounded-full hover:text-green-600" />
+                      <span>Send via WhatsApp</span>
+                    </>
                   )}
                 </motion.button>
               </form>
