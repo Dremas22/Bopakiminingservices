@@ -338,7 +338,7 @@ Thank you.`;
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
@@ -352,7 +352,7 @@ Thank you.`;
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
             viewport={{ once: true }}
             className="bg-background/20 rounded-2xl shadow-lg overflow-hidden h-96"
           >
