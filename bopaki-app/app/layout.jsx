@@ -50,7 +50,7 @@ export default function RootLayout({ children }) {
             {children}
           </main>
 
-          {/* <Footer /> */}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

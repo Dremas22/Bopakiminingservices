@@ -23,18 +23,15 @@ export const services = [
 export const coreServices = [
   {
     name: "Buy & Sell",
-    images: [
-      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2126&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
-    ],
+    images: ["/images/buy&sell16.jpeg", "/images/buy&sell2.jpeg"],
     description:
       "Complete equipment procurement and sales solutions for mining operations.",
   },
   {
     name: "Catering Services",
     images: [
-      "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=2087&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?q=80&w=2080&auto=format&fit=crop",
+      "/images/catering-services3.jpeg",
+      "/images/catering-services2.jpeg",
     ],
     description:
       "Professional catering services for mining sites and industrial facilities.",
@@ -42,18 +39,15 @@ export const coreServices = [
   {
     name: "PPE & Corporate Clothing",
     images: [
-      "https://images.unsplash.com/photo-1545558014-8692077e9b5c?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?q=80&w=2070&auto=format&fit=crop",
+      "/images/ppe&corporate-clothing3.jpeg",
+      "/images/ppe&corporate-clothing4.jpeg",
     ],
     description:
       "High-quality personal protective equipment and corporate uniforms.",
   },
   {
     name: "Signage",
-    images: [
-      "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?q=80&w=2074&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?q=80&w=2070&auto=format&fit=crop",
-    ],
+    images: ["/images/signage1.jpeg", "/images/signage2.jpeg"],
     description:
       "Custom industrial and safety signage solutions for all facilities.",
   },
@@ -68,10 +62,7 @@ export const coreServices = [
   },
   {
     name: "Fuel Lubricants",
-    images: [
-      "https://images.unsplash.com/photo-1545558014-8692077e9b5c?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2070&auto=format&fit=crop",
-    ],
+    images: ["/images/fuel-lubricants1.jpeg", "/images/fuel-lubricants2.jpeg"],
     description:
       "High-grade fuel and lubricant supply for industrial machinery.",
   },
@@ -89,26 +80,20 @@ export const coreServices = [
 export const secondaryServices = [
   {
     name: "Logistics",
-    images: [
-      "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2070&auto=format&fit=crop",
-    ],
+    images: ["/images/logistics3.jpeg", "/images/logistics4.jpeg"],
     description:
       "Efficient logistics and transportation services for mining operations.",
   },
   {
     name: "Plant Hire",
-    images: [
-      "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?q=80&w=2070&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2070&auto=format&fit=crop",
-    ],
+    images: ["/images/plant-hire1.jpeg", "/images/plant-hire2.jpeg"],
     description: "Heavy machinery and equipment rental services.",
   },
   {
     name: "Office Space Hire",
     images: [
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2069&auto=format&fit=crop",
+      "/images/office-space-hire1.jpeg",
+      "/images/office-space-hire2.jpeg",
     ],
     description:
       "Flexible office space solutions for temporary and permanent needs.",

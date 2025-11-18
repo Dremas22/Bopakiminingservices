@@ -125,7 +125,7 @@ Thank you.`;
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-5xl font-bold mb-4 break-words"
+            className="text-4xl md:text-5xl font-bold mb-4 wrap-break-word"
           >
             Contact Us
           </motion.h1>
@@ -134,7 +134,7 @@ Thank you.`;
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-lg md:text-xl text-foreground/30 break-words"
+            className="text-lg md:text-xl text-foreground/30 wrap-break-word"
           >
             Get in touch with our team for all your mining and industrial needs
           </motion.p>
@@ -149,7 +149,7 @@ Thank you.`;
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.3 }}
               viewport={{ once: true }}
               className="shadow-lg p-8"
             >
@@ -168,7 +168,7 @@ Thank you.`;
                     key={info.title}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     className="flex items-start space-x-4"
                   >
@@ -196,7 +196,7 @@ Thank you.`;
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.3 }}
               viewport={{ once: true }}
               className="bg-background/20 rounded-2xl shadow-lg p-8"
             >
