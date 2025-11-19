@@ -8,13 +8,13 @@ const LandingPage = () => {
   return (
     <div className="pt-16">
       {/* Banner Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden rounded-2xl">
         {/* Background image */}
         <Image
           src="/images/BopakiminingLogo.jpg"
           alt="Bopaki Mining Services Banner"
           fill
-          className="object-cover object-center opacity-40"
+          className="object-cover object-center opacity-40 rounded-2xl"
           priority
         />
         <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-black/40"></div>
@@ -92,7 +92,7 @@ const LandingPage = () => {
             viewport={{ once: true }}
             className="mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
               What We Do
             </h2>
             <p className="text-lg text-foreground max-w-4xl mx-auto leading-relaxed">
@@ -117,16 +117,20 @@ const LandingPage = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-foreground rounded-2xl p-8 shadow-lg"
+            className="bg-card rounded-2xl p-8 shadow-lg border border-border"
           >
-            <h3 className="text-2xl font-bold text-foreground/20 mb-4">
-              Vision
+            <h3 className="text-2xl font-bold text-primary mb-6 text-center">
+              Our Vision
             </h3>
-            <p className="text-foreground/40 leading-relaxed">
-              Promote and maintain a reputation of service excellence and
-              dedication, resulting in long-term partnerships with our clients
-              and suppliers.
-            </p>
+
+            <div className="flex items-start gap-4">
+              <span className="text-orange-500 mt-1 text-2xl">👁️</span>
+              <p className="text-foreground/80 leading-relaxed">
+                Promote and maintain a reputation of service excellence and
+                dedication, resulting in long-term partnerships with our clients
+                and suppliers.
+              </p>
+            </div>
           </motion.div>
 
           {/* Mission Card */}
@@ -135,25 +139,37 @@ const LandingPage = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-foreground rounded-2xl p-8 shadow-lg"
+            className="bg-card rounded-2xl p-8 shadow-lg border border-border"
           >
-            <h3 className="text-2xl font-bold text-foreground/20 mb-4">
-              Mission
+            <h3 className="text-2xl font-bold text-primary mb-6 text-center">
+              Our Mission
             </h3>
-            <ul className="list-disc ml-6 text-foreground/40 space-y-2 leading-relaxed">
-              <li>
-                Serve clients with prompt response — because downtime destroys
-                income.
-              </li>
-              <li>
-                Be a locally and internationally recognized enterprise providing
-                first-class services.
-              </li>
-              <li>
-                Create a sustainable, world-class company that benefits all
-                stakeholders.
-              </li>
-            </ul>
+
+            <div className="space-y-5">
+              <div className="flex items-start gap-3">
+                <span className="text-orange-500 mt-1">🎯</span>
+                <p className="text-foreground/80 leading-relaxed">
+                  Serve clients with prompt response — because downtime destroys
+                  income.
+                </p>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <span className="text-orange-500 mt-1">🌐</span>
+                <p className="text-foreground/80 leading-relaxed">
+                  Be a locally and internationally recognized enterprise
+                  providing first-class services.
+                </p>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <span className="text-orange-500 mt-1">💡</span>
+                <p className="text-foreground/80 leading-relaxed">
+                  Create a sustainable, world-class company that benefits all
+                  stakeholders.
+                </p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -180,7 +196,7 @@ const LandingPage = () => {
             viewport={{ once: true }}
             className="max-w-2xl mx-auto"
           >
-            <div className="bg-surface rounded-2xl shadow-lg overflow-hidden">
+            <div className="bg-card rounded-2xl shadow-lg overflow-hidden">
               <div className="bg-linear-to-r from-primary/80 to-secondary/80 h-32"></div>
               <div className="relative px-8 py-12">
                 <div className="w-24 h-24 bg-card rounded-full mx-auto -mt-20 mb-6 border-4 border-surface flex items-center justify-center">
