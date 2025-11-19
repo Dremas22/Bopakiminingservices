@@ -1,9 +1,9 @@
 "use client";
 import { contactInfo } from "@/constants";
 import { motion } from "framer-motion";
-import { Loader2 } from "lucide-react";
+import { HomeIcon, Loader2, LocateIcon } from "lucide-react";
 import { useState } from "react";
-import { FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
+import { FaAddressBook, FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -124,7 +124,7 @@ Thank you.`;
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.4 }}
             className="text-4xl md:text-5xl font-bold mb-4 wrap-break-word"
           >
             Contact Us
@@ -147,10 +147,9 @@ Thank you.`;
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: -30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
               className="shadow-lg p-8"
             >
               <h2 className="text-3xl font-bold text-foreground mb-8">
@@ -194,10 +193,9 @@ Thank you.`;
 
             {/* Contact Form */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: -30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
               className="bg-background/20 rounded-2xl shadow-lg p-8"
             >
               <h2 className="text-2xl font-bold text-foreground mb-6">
@@ -368,10 +366,36 @@ Thank you.`;
                   <h3 className="text-xl font-semibold text-foreground mb-1">
                     Address
                   </h3>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-xs mx-auto">
-                    House No. 0462, Mmadiphiri Section, <br />
-                    Phokeng 0335
-                  </p>
+                  <div className="max-w-xs mx-auto text-muted-foreground space-y-8">
+                    <div className="flex flex-col gap-2">
+                      {/* Street */}
+                      <div className="flex items-center gap-4">
+                        <span className="w-6 flex justify-center text-orange-500 font-semibold text-lg">
+                          <HomeIcon className="w-10 h-10" />
+                        </span>
+                        <span className="font-medium">House No. 0462</span>
+                      </div>
+
+                      {/* Section */}
+                      <div className="flex items-center gap-4">
+                        <span className="w-6 flex justify-center text-orange-500 font-semibold text-lg">
+                          <LocateIcon />
+                        </span>
+                        <span className="font-medium">Mmadiphiri Section</span>
+                      </div>
+
+                      {/* City & Postal */}
+                      <div className="flex items-center gap-4">
+                        <span className="w-6 flex justify-center text-orange-500 font-semibold text-lg">
+                          <FaAddressBook />
+                        </span>
+                        <span className="font-medium">Phokeng 0335</span>
+                      </div>
+                    </div>
+
+                    {/* Divider */}
+                    <div className="w-96 h-0.5 bg-orange-500 rounded-full mx-auto mt-2"></div>
+                  </div>
                 </div>
               </div>
             </div>

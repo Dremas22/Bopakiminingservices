@@ -7,7 +7,7 @@ const ServiceCard = ({ service, index }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: index * 0.1 }}
+    transition={{ duration: 0.6, delay: index * 0.2 }}
     whileHover={{ scale: 1.05 }}
     viewport={{ once: true }}
     className="bg-accent rounded-2xl shadow-lg overflow-hidden h-96 flex flex-col"

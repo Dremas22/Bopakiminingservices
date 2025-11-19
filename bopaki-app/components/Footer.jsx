@@ -1,3 +1,5 @@
+"use client";
+
 import {
   FaFacebookF,
   FaTwitter,
@@ -7,8 +9,11 @@ import {
   FaEnvelope,
   FaPhoneAlt,
 } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+  const pathname = usePathname();
   const socialLinks = [
     { icon: <FaFacebookF />, name: "Facebook", href: "#" },
     { icon: <FaTwitter />, name: "Twitter", href: "#" },
@@ -17,10 +22,23 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-blue-600 dark:bg-blue-800 text-white dark:text-gray-200 pt-6 transition-colors">
+    <motion.footer
+      key={pathname}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="bg-blue-600 dark:bg-blue-800 text-white dark:text-gray-200 pt-6 transition-colors"
+    >
       <div className="container mx-auto px-2 md:px-16 grid md:grid-cols-3 gap-6">
         {/* Company Info */}
-        <div className="space-y-4">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="space-y-4"
+        >
           <h3 className="text-2xl font-bold text-orange-500 dark:text-orange-400">
             Bopaki Mining
           </h3>
@@ -28,10 +46,15 @@ const Footer = () => {
             A 100% black woman-owned company providing professional mining and
             engineering solutions with integrity, reliability, and excellence.
           </p>
-        </div>
+        </motion.div>
 
         {/* Contact Info */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           <h4 className="text-xl font-semibold text-orange-500 dark:text-orange-400 mb-4">
             Contact Us
           </h4>
@@ -71,10 +94,15 @@ const Footer = () => {
               </a>
             </li>
           </ul>
-        </div>
+        </motion.div>
 
         {/* Follow Us Section */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           <h4 className="text-xl font-semibold text-orange-500 dark:text-orange-400 mb-1">
             Follow Us
           </h4>
@@ -94,15 +122,21 @@ const Footer = () => {
           <p className="mt-3 text-gray-100 dark:text-gray-300 text-sm">
             Stay connected with us on social media for updates and insights.
           </p>
-        </div>
+        </motion.div>
       </div>
 
       {/* Bottom copyright */}
-      <div className="mt-6 border-t border-white/20 dark:border-gray-400/20 py-6 text-center text-sm text-gray-300 dark:text-gray-400 font-bold transition-colors">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="mt-6 border-t border-white/20 dark:border-gray-400/20 py-6 text-center text-sm text-gray-300 dark:text-gray-400 font-bold transition-colors"
+      >
         © {new Date().getFullYear()} Bopaki Mining Services (Pty) Ltd. All
         rights reserved.
-      </div>
-    </footer>
+      </motion.div>
+    </motion.footer>
   );
 };
 
